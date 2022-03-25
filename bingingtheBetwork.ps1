@@ -1,24 +1,54 @@
-#
+"⣞⢽⢪⢣⢣⢣⢫⡺⡵⣝⡮⣗⢷⢽⢽⢽⣮⡷⡽⣜⣜⢮⢺⣜⢷⢽⢝⡽⣝
+⠸⡸⠜⠕⠕⠁⢁⢇⢏⢽⢺⣪⡳⡝⣎⣏⢯⢞⡿⣟⣷⣳⢯⡷⣽⢽⢯⣳⣫⠇
+⠀⠀⢀⢀⢄⢬⢪⡪⡎⣆⡈⠚⠜⠕⠇⠗⠝⢕⢯⢫⣞⣯⣿⣻⡽⣏⢗⣗⠏⠀
+⠀⠪⡪⡪⣪⢪⢺⢸⢢⢓⢆⢤⢀⠀⠀⠀⠀⠈⢊⢞⡾⣿⡯⣏⢮⠷⠁⠀⠀
+⠀⠀⠀⠈⠊⠆⡃⠕⢕⢇⢇⢇⢇⢇⢏⢎⢎⢆⢄⠀⢑⣽⣿⢝⠲⠉⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⡿⠂⠠⠀⡇⢇⠕⢈⣀⠀⠁⠡⠣⡣⡫⣂⣿⠯⢪⠰⠂⠀⠀⠀⠀
+⠀⠀⠀⠀⡦⡙⡂⢀⢤⢣⠣⡈⣾⡃⠠⠄⠀⡄⢱⣌⣶⢏⢊⠂⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⢝⡲⣜⡮⡏⢎⢌⢂⠙⠢⠐⢀⢘⢵⣽⣿⡿⠁⠁⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠨⣺⡺⡕⡕⡱⡑⡆⡕⡅⡕⡜⡼⢽⡻⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⣼⣳⣫⣾⣵⣗⡵⡱⡡⢣⢑⢕⢜⢕⡝⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⣴⣿⣾⣿⣿⣿⡿⡽⡑⢌⠪⡢⡣⣣⡟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⡟⡾⣿⢿⢿⢵⣽⣾⣼⣘⢸⢸⣞⡟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠁⠇⠡⠩⡫⢿⣝⡻⡮⣒⢽⠋
+No enumerated hosts?"
 function MainInput {
-"Tryna ping??? Enter a class C network /24"
-$1stoctet = read-host "Enter yer 1st octet lad" 
-$2ndoctet = Read-Host "Enter yer second octet lad"
-$3rdoctet = Read-host "Enter yer third octet lad" 
+"Enter a class C network /24"
+$1stoctet = read-host "Enter First octet" 
+$2ndoctet = Read-Host "Enter second octet"
+$3rdoctet = Read-host "Enter third octet" 
 $firsttree = $1stoctet+'.'+$2ndoctet+'.'+$3rdoctet+'.' 
-"Is this yer first three? $firsttree"
+"Is this your first three? $firsttree"
 YesNo
 }
-function YesNo {
-$HostConfirm2 = read-host "Y/N?"
-switch ($HostConfirm2) {
-    condition {$HostConfirm2 =   }
-    Default {}
-}    
-<#$HostConfirm = read-host "Y/N?"
-    if ($HostConfirm = 'Y') {
-        1..254 | foreach { $status=Test-Connection "$firsttree$_" -TimeoutSeconds 2 -Count 1 -quiet; "$firsttree$_ $status"}
+
+<#function ClassConly {
+    if ($1stoctet -ne '192') ($2ndoctet -ne '168') ($3rdoctet -ne '1-254') {
+        main
+    }  
+}#>
+function YesNo { 
+$HostConfirm = read-host "Y/N?"
+    if ($HostConfirm -eq "Y"){
+        "~~~Thats a propa scan baybee~~~
+⠄⠄⠄⠄⠄⠄⠄⠄⠄⢀⣀⣀⣄⣶⡶⣦⣀⠄⠄⠄⠄⠄⠄⠄
+⠄⠄⠄⠄⠄⢠⡦⡟⠻⠛⠙⠉⠈⠄⠄⠈⠻⠛⣾⣦⣤⣀⠄⠄
+⠄⠄⠄⣰⡿⠟⠃⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠘⠋⠽⢿⣧⠄
+⠄⢀⣴⠞⠂⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⢼⠆⠄
+⠄⣼⠇⠄⠄⠄⠄⠄⠄⠄⠄⣀⣠⣤⣶⣿⣶⣦⣤⣀⠄⣻⡃⠄
+⠄⡿⠄⠄⠄⠄⠄⠄⠄⠄⠄⣿⣿⣿⣿⣿⣿⣿⣿⣿⣦⢸⣧⠄
+⠄⢿⡀⠄⠄⠄⠄⠄⠄⠄⢠⣾⣿⣿⣋⣩⣭⣝⣿⣿⠛⢰⡇⠄
+⠄⢸⡇⠄⠄⢀⠄⠄⠄⠄⣾⣿⣿⣿⣟⣯⠉⢉⣿⠋⣟⢻⡇⠄
+⠄⠄⢹⡀⢳⡗⠂⣠⠄⠄⣿⣿⣿⣿⣿⣭⣽⣿⣿⣿⣉⣸⠇⠄
+⠄⠄⠈⣷⠄⢳⣷⣿⠄⠄⢹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠄
+⠄⠄⠄⠘⣧⠄⠈⠙⠄⠄⠄⠉⠙⠛⠛⣿⣿⣷⣤⣄⢿⡿⠃⠄
+⠄⠄⠄⠄⠉⠳⣄⡀⠄⠄⠄⢢⣦⣾⣿⠿⠿⠛⠉⢉⣽⠇⠄⠄
+⠄⠄⠄⠄⠄⠄⠘⠿⣄⢀⠄⣀⣝⢻⣿⡿⠒⣀⣀⣸⠁⠄⠄⠄
+⠄⠄⠄⠄⠄⠄⠄⠄⠈⠳⣤⠁⠙⠎⢻⣄⠄⠄⣸⠋⠄⠄⠄⠄
+⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠈⠙⠶⢦⣄⣀⣣⠴⠃⠄⠄⠄⠄⠄"
+        1..254 | foreach { $status=Test-Connection "$firsttree$_" -Count 1 -quiet; "$firsttree$_ $status"}
     }
-    elseif ($HostConfirm = "N,n"){
+    elseif ($HostConfirm -eq "N"){
         "input a propa IP ya bloke!"
             MainInput
             }
@@ -26,9 +56,5 @@ switch ($HostConfirm2) {
         "You're A Propa Twat."
             MainInput
                 }
-#>
 }
 MainInput
-
-#1..254 | foreach { $status=Test-Connection "$firsttree$_" -TimeoutSeconds 2 -Count 1 -quiet; "$firsttree$_ $status"
-#}
